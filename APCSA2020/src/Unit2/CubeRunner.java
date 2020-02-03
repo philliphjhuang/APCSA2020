@@ -1,8 +1,8 @@
 package Unit2;
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Phillip Huang
+//Date - 02/03/2020
 
 public class CubeRunner
 {

@@ -1,13 +1,15 @@
 package Unit2;
 //(c) A+ Computer Science
 // www.apluscompsci.com
-//Name -
-//Date -
+//Name - Phillip Huang
+//Date - 2/3/2020
 
 public class Cube
 {
+	
 	public static double area( int side )
 	{
-		return 0;
+		double d = 6*side*side;
+		return d;
 	}
 }

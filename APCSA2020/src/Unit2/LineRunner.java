@@ -1,8 +1,8 @@
 package Unit2;
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
+//Name - Phillip Huang
+//Date - 02/03/2020
+//Class - Period 2
 //Lab  - 
 
 public class LineRunner
