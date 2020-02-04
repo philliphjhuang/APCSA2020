@@ -2,9 +2,9 @@ package Unit3;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
+//Name - Phillip Huang
+//Date - 02/05/2020
+//Class - Period 2
 //Lab  -
 
 import java.util.Scanner; 
@@ -28,14 +28,19 @@ public class MilesPerHour
 
 	public void setNums(int dist, int hrs, int mins)
 	{
+		distance = dist;
+		hours = hrs;
+		minutes = mins;
 	}
 
 	public void calcMPH()
 	{
+		mph = distance/(hours+((double)minutes/60));
 	}
 
 	public void print()
 	{
+		System.out.println("\n"+distance+" miles in "+hours+" hours and "+minutes+" minutes = "+Math.round(mph)+" MPH.\n\n\n");
 	}
 	
 	//create a print or toString or both
