@@ -36,7 +36,7 @@ public class Distance
 	{
 		distance = sqrt(Math.pow(yTwo - yOne,2) + Math.pow(xTwo - xOne, 2));
 	}
-	
+	 
 	public double getDistance()
 	{
 		return distance;

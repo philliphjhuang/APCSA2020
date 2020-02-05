@@ -32,7 +32,7 @@ public class MilesPerHour
 		distance = dist;
 		hours = hrs;
 		minutes = mins;
-	}
+	} 
 
 	public void calcMPH()
 	{

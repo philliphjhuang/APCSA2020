@@ -13,7 +13,7 @@ import static java.lang.System.*;
 import static java.lang.Math.*;
 
 public class DistanceRunner {
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		Scanner keyboard = new Scanner(in);
 		for (int i = 0; i < 3; i++) {
 			out.print("Enter X1 :: ");

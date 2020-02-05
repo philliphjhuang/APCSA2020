@@ -15,7 +15,7 @@ public class MPHRunner
 {
 	public static void main( String[] args )
 	{
-		Scanner keyboard = new Scanner(in);
+		Scanner keyboard = new Scanner(in); 
 		
 		for(int i = 0; i < 3; i ++) {
 			out.print("Enter the distance :: ");
