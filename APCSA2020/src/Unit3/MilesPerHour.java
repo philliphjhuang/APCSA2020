@@ -24,6 +24,7 @@ public class MilesPerHour
 
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
+		
 	}
 
 	public void setNums(int dist, int hrs, int mins)
@@ -35,18 +36,18 @@ public class MilesPerHour
 
 	public void calcMPH()
 	{
-		mph = distance/(hours+((double)minutes/60));
+		mph = distance/(hours+(double)minutes/60);
 	}
 
 	public void print()
 	{
-		System.out.println("\n"+distance+" miles in "+hours+" hours and "+minutes+" minutes = "+Math.round(mph)+" MPH.\n\n\n");
+		
 	}
 	
 	//create a print or toString or both
 	
 	public String toString()
 	{
-		return "";
+		return "\n"+distance+" miles in "+hours+" hours and "+minutes+" minutes = "+Math.round(mph)+" MPH.\n\n\n";
 	}
 }

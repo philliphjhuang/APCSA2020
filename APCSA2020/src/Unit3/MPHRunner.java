@@ -17,7 +17,7 @@ public class MPHRunner
 	{
 		Scanner keyboard = new Scanner(in);
 		
-		for(int i = 0; i < 4; i ++) {
+		for(int i = 0; i < 3; i ++) {
 			out.print("Enter the distance :: ");
 			int dist = keyboard.nextInt();
 
@@ -26,11 +26,11 @@ public class MPHRunner
 
 			out.print("Enter the minutes :: ");
 			int mins = keyboard.nextInt();
-
+			
 			MilesPerHour test = new MilesPerHour(dist, hrs, mins);
 			test.setNums(dist, hrs, mins);
 			test.calcMPH();
-			test.print();
+			System.out.println(test.toString());
 		//add more test cases
 		}
 		

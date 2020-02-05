@@ -44,7 +44,8 @@ public class Distance
 	
 	public void print()
 	{
-		System.out.println("distance == " +  distance + "\n\n\n");
+		System.out.println(String.format("distance == %.3f", distance));
+		System.out.println("\n\n\n");
 	}
 	
 	//complete print or the toString
