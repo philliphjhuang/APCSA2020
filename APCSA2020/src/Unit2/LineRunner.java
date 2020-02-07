@@ -18,3 +18,11 @@ public class LineRunner
 		
 	}
 }
+/*
+Slope is :: -0.54
+Slope is :: -0.24
+Slope is :: 0.50
+Slope is :: -1.00
+Slope is :: 8.00
+Slope is :: 2.00
+*/

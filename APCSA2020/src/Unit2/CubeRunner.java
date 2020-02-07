@@ -19,6 +19,14 @@ public class CubeRunner
 	}
 }
 
-
+/*
+Cube area is :: 75264.0
+Cube area is :: 96.0
+Cube area is :: 6534.0
+Cube area is :: 15000.0
+Cube area is :: 150.0
+Cube area is :: 2166.0
+Cube area is :: 73926.0
+*/
 
 
