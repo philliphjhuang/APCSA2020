@@ -15,6 +15,9 @@ import static java.lang.Math.*;
 public class DistanceRunner {
 	public static void main(String[] args) {  
 		Scanner keyboard = new Scanner(in);
+		int x = 9;
+		double y = x;
+		System.out.println(y);
 		for (int i = 0; i < 3; i++) {
 			out.print("Enter X1 :: ");
 			int x1 = keyboard.nextInt();
