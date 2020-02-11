@@ -17,6 +17,9 @@ public class LetterRemover
 
 	//add in second constructor
 	
+	public LetterRemover(String x) {
+		
+	}
 	
 	public void setRemover(String s, char rem)
 	{
@@ -27,6 +30,9 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String cleaned=sentence;
+		while(cleaned.indexOf(lookFor)!=0) {
+			
+		}
 		return cleaned;
 	}
 
