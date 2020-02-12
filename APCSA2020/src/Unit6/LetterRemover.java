@@ -30,8 +30,9 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String cleaned=sentence;
-		while(cleaned.indexOf(lookFor)!=0) {
-			
+		while(cleaned.indexOf(lookFor)!=-1) {
+			String x = Character.toString(lookFor);
+			cleaned = cleaned.replace(x,"");
 		}
 		return cleaned;
 	}
