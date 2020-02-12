@@ -20,9 +20,17 @@ public class TriangleOne
 
 	public void setWord(String s)
 	{
+		word = s;
 	}
 
 	public void print( )
 	{
+		for(int i = word.length(); i > 0; i--) {
+			System.out.println(word.substring(0,i));
+		}
 	}
 }
+
+
+
+
