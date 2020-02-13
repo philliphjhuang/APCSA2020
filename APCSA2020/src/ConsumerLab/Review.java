@@ -63,7 +63,7 @@ public class Review {
 	public static String textToString(String fileName) {
 		String temp = "";
 		try {
-			Scanner input = new Scanner(new File(fileName));
+			Scanner input = new Scanner(new File("positiveAdjectives.txt"));
 
 			// add 'words' in the file to the string, separated by a single space
 			while (input.hasNext()) {
