@@ -20,7 +20,7 @@ public class Review {
 
 	static {
 		try {
-			Scanner input = new Scanner(new File("cleanSentiment.csv"));
+			Scanner input = new Scanner(new File("src/ConsumerLab/cleanSentiment.csv"));
 			while (input.hasNextLine()) {
 				String[] temp = input.nextLine().split(",");
 				sentiment.put(temp[0], Double.parseDouble(temp[1]));
@@ -33,7 +33,7 @@ public class Review {
 
 		// read in the positive adjectives in postiveAdjectives.txt
 		try {
-			Scanner input = new Scanner(new File("positiveAdjectives.txt"));
+			Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
 			while (input.hasNextLine()) {
 				String temp = input.nextLine().trim();
 				System.out.println(temp);
@@ -46,7 +46,7 @@ public class Review {
 
 		// read in the negative adjectives in negativeAdjectives.txt
 		try {
-			Scanner input = new Scanner(new File("negativeAdjectives.txt"));
+			Scanner input = new Scanner(new File("src/ConsumerLab/negativeAdjectives.txt"));
 			while (input.hasNextLine()) {
 				negAdjectives.add(input.nextLine().trim());
 			}
@@ -63,7 +63,7 @@ public class Review {
 	public static String textToString(String fileName) {
 		String temp = "";
 		try {
-			Scanner input = new Scanner(new File("positiveAdjectives.txt"));
+			Scanner input = new Scanner(new File("src/ConsumerLab/positiveAdjectives.txt"));
 
 			// add 'words' in the file to the string, separated by a single space
 			while (input.hasNext()) {
@@ -145,15 +145,20 @@ public class Review {
 	public static double totalSentiment(String filename) {
 		// read in the file contents into a string using the textToString method with
 		// the filename
-
+		String contents = textToString(filename);
 		// set up a sentimentTotal variable
 		double sentimentTotal = 0;
+		String word = "";
 		// loop through the file contents
-
-		// find each word
-		// add in its sentimentVal
-		// set the file contents to start after this word
-
+		while(!contents.equals("")) {
+			// find each word
+			int spacePosition = contents.indexOf(' ');
+			// add in its sentimentVal
+			
+			sentimentTotal += sentimentVal(contents.substring(0, spacePosition));
+			// set the file contents to start after this word
+			contents = contents.substring(spacePosition+1,contents.length()-1);
+		}
 		return sentimentTotal;
 	}
 
