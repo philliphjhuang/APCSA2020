@@ -58,7 +58,26 @@ public class RockPaperScissors
 
 	public String toString()
 	{
-		String output="";
+		String output = "";
+		if(determineWinner().equals("Player")) {
+			if(playChoice.equals("S")) {
+				output= "!Player wins <<Scissors Cut Papers>>!";
+			} else if(playChoice.equals("R")) {
+				output= "!Player wins <<Rocks Break Scissors>>!";
+			} else if(playChoice.equals("P")) {
+				output= "!Player wins <<Papers Cover Rocks>>!";
+			}
+		} else if(determineWinner().equals("Computer")) {
+			if(compChoice.equals("S")) {
+				output= "!Computer wins <<Scissors Cut Papers>>!";
+			} else if(compChoice.equals("R")) {
+				output= "!Computer wins <<Rocks Break Scissors>>!";
+			} else if(compChoice.equals("P")) {
+				output= "!Computer wins <<Papers Cover Rocks>>!";
+			}
+		} else if(determineWinner().equals("")) {
+			output= "!Draw Game!";
+		}
 		return output;
 	}
 }
