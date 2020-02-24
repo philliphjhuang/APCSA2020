@@ -28,7 +28,7 @@ public class Deck{
 	}
    //make a dealCard() method that returns the top card
    public Card dealCard() {
-	   return null;
+	   return ;
    }
    //write a shuffle() method
 	   
