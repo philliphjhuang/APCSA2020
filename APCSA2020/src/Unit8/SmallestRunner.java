@@ -22,7 +22,7 @@ public class SmallestRunner
 		System.out.println( rs.go( new int[]{12,15,18,21,23,1000} ) );
 		System.out.println( rs.go( new int[]{250,19,17,15,13,11,10,9,6,3,2,1,-455} ) );	
 		System.out.println( rs.go( new int[]{9,10,-8,10000,-5000,1000} ) );	
-	}
+	} 
 }
 /*-------------------------------------------result------------------------------------------
 -99

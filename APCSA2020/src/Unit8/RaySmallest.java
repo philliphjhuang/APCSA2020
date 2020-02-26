@@ -16,4 +16,4 @@ public class RaySmallest
 		}
 		return smallest;
 	}
-}
+} 
