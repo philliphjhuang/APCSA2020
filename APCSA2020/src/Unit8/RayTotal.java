@@ -14,4 +14,4 @@ public class RayTotal
 		}
 		return total;
 	}
-}
+} 
