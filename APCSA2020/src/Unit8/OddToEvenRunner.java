@@ -20,3 +20,14 @@ public class OddToEvenRunner
 		System.out.println(rote.go(new int[]{2,4,6,8,8}));
 	}
 }
+/*--------------------------------result--------------------------------
+6
+2
+3
+1
+-1
+4
+5
+4
+-1
+*/
