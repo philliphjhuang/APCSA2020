@@ -23,4 +23,4 @@ public class ListDown
 		}
 		return isDecreasing;
 	}	
-}
+} 

@@ -34,5 +34,19 @@ public class DownRunner
 		System.out.println(ListDown.go(Arrays.asList(eleven)));
 		Integer[] tweleve = {9,10,-8,10000,-5000,1000};
 		System.out.println(ListDown.go(Arrays.asList(tweleve)));
-	}
+	} 
 }
+/*-----------------------------------------------------------------result--------------------------
+false
+true
+false
+false
+false
+false
+false
+false
+true
+false
+true
+false
+*/
