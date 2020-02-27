@@ -30,3 +30,15 @@ public class OddToEvenRunner
 		System.out.println(ListOddToEven.go(Arrays.asList(nine)));
 	}
 }
+/*----------------------------------result---------------------------------
+10
+8
+3
+4
+-1
+6
+5
+9
+-1
+
+*/

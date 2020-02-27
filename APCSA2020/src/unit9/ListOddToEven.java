@@ -22,7 +22,7 @@ public class ListOddToEven
 					}
 				}
 				break;
-			}
+			} 
 		}
 		if(firstOddPosition == -1 || lastEvenPosition == -1) {
 			return -1;
