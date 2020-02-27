@@ -16,7 +16,7 @@ public class ListSumFirst
 			if(ray.get(i)>ray.get(0)) {
 				sum += ray.get(i);
 			}
-		}
+		} 
 		if(sum==0) {
 			return -1;
 		}
