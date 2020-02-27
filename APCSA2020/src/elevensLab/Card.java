@@ -11,18 +11,28 @@ public class Card
 	//instance variables
 		//String suit
 		//int face
-
+	String suit;
+	int face;
   	//constructors
-
+	public Card() {
+		
+	}
 
 	// modifiers
 		//set methods
-
+	public void setFace() {
+		
+	}
 
   	//accessors
 		//get methods
-
+	public String getCard() {
+		
+		return "";
+	}
 
   	//toString
-
+	public String toString() {
+		return "";
+	}
  }
