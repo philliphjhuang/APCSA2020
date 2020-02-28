@@ -9,32 +9,53 @@ public class Card
 			"FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
 
 	//instance variables
-		//String suit
-		//int face
-	
 	private String suit;
 	private String rank;
-	
-	private int face;
+	private int pointValue;
+	private int face = -1;
   	//constructors
-	public Card() {
-		
-	}
-
-	// modifiers
-		//set methods
-	public void setFace(int f) {
+	public Card(String s, int f) {
+		suit = s;
 		face = f;
 	}
 
+	// modifiers
+	public void setSuit(String s) {
+		suit = s;
+	}
+	public void setRank(String r) {
+		rank = r;
+	}
+	public void setPointValue(int pv) {
+		pointValue = pv;
+	}
+	public void setFace(int f) {
+		face = f;
+	}
+	
   	//accessors
-		//get methods
-	public String getCard(int f) {
+	public String getSuit() {
 		return suit;
 	}
-
+	public String getRank() {
+		return rank;
+	}
+	public int getPointValue() {
+		return pointValue;
+	}
+	public int getFace() {
+		return face;
+	}
+	
+	
   	//toString
 	public String toString() {
+		if (rank != null) {
+			return (rank + " of " + suit + " (point value = " + pointValue + ")");
+		}
+		if (face != -1) {
+			return (FACES[face] + " of " + suit);
+		}
 		return "";
 	}
  }
