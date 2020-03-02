@@ -1,19 +1,20 @@
 package elevensLab;
 //(c) A+ Computer Science
+
 //www.apluscompsci.com
-//Name -
+//Name - 
 
-public class Card
-{
-	public static final String FACES[] = {"ZERO","ACE","TWO","THREE","FOUR",
-			"FIVE","SIX","SEVEN","EIGHT","NINE","TEN","JACK","QUEEN","KING"};
+public class Card {
+	public static final String FACES[] = { "ZERO", "ACE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT",
+			"NINE", "TEN", "JACK", "QUEEN", "KING" };
 
-	//instance variables
+	// instance variables
 	private String suit;
 	private String rank;
 	private int pointValue;
 	private int face = -1;
-  	//constructors
+
+	// constructors
 	public Card(String s, int f) {
 		suit = s;
 		face = f;
@@ -23,39 +24,43 @@ public class Card
 	public void setSuit(String s) {
 		suit = s;
 	}
+
 	public void setRank(String r) {
 		rank = r;
 	}
+
 	public void setPointValue(int pv) {
 		pointValue = pv;
 	}
+
 	public void setFace(int f) {
 		face = f;
 	}
-	
-  	//accessors
+
+	// accessors
 	public String getSuit() {
 		return suit;
 	}
+
 	public String getRank() {
 		return rank;
 	}
+
 	public int getPointValue() {
 		return pointValue;
 	}
+
 	public int getFace() {
 		return face;
 	}
-	
-	
-  	//toString
+
+	// toString
 	public String toString() {
 		if (rank != null) {
-			return (rank + " of " + suit + " (point value = " + pointValue + ")");
-		}
-		if (face != -1) {
-			return (FACES[face] + " of " + suit);
+			return rank + " of " + suit + " (point value = " + pointValue + ")";
+		} else if (face != -1) {
+			return FACES[face] + " of " + suit;
 		}
 		return "";
 	}
- }
+}
