@@ -8,30 +8,41 @@ import static java.lang.System.*;
 class Rational implements Comparable<Rational>
 {
 	//add two instance variables
-	int num1;
-	int num2;
+	int num;
+	int den;
 	//write two constructors
 	public Rational() {
-		
+		num = 1;
+		den = 1;
 	}
 	
 	public Rational(int numOne,int numTwo) {
-		num1 = numOne;
-		num2 = numTwo;
+		num = numOne;
+		den = numTwo;
 	}
 	
 	//write a setRational method
-	public void setRational() {
-		
+	public void setRational(int x, int y) {
+		int max = Math.max(x, y) - 1;
+		int divide = -1;
+		for(int i = 1; i < max; i++) {
+			if(x % i == 0 && y % i == 0) {
+				divide = i;
+			}
+		}
+		if(divide!=-1) {
+			num = x/divide;
+			den = y/divide;
+		}
 	}
 
 	//write  a set method for numerator and denominator
-	public void setNumerator(int numOne) {
-		num1 = numOne;
+	public void setNumerator(int numerator) {
+		num = numerator;
 	}
 	
-	public void setDenominator(int numTwo) {
-		num2 = numTwo;
+	public void setDenominator(int denominator) {
+		den = denominator;
 	}
 	
 	
@@ -57,14 +68,13 @@ class Rational implements Comparable<Rational>
 			if(numOne%x==0 && numTwo==0) {
 				return x;
 			}
-			return 1;
 		}
 		return 1;
 	}
 
-	public Object clone ()
+	public Object clone()
 	{
-		return "";
+		return new Rational(this.getNumerator(), this.getDenominator());
 	}
 
 
@@ -72,17 +82,18 @@ class Rational implements Comparable<Rational>
 
 	//write get methods for numerator and denominator
 	public int getNumerator() {
-		return 1;
+		return num;
 	}
 	public int getDenominator() {
-		return 1;
+		return den;
 	}
 	
 	
 	public boolean equals( Object obj)
 	{
-
-
+		if((double)num/den == (double)((Rational) obj).getNumerator()/((Rational) obj).getNumerator()) {
+			return true;
+		}
 		return false;
 	}
 
@@ -98,7 +109,7 @@ class Rational implements Comparable<Rational>
 	
 	//write  toString() method
 	public String toString() {
-		return "";
+		return num + "/" + den;
 	}
 	
 }
