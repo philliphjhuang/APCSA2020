@@ -19,11 +19,13 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
+		toyList.add(getThatToy(toys));
 	}
   
   	public Toy getThatToy( String nm )
   	{
-  		return null;
+  		Toy a = nm;
+  		return a;
   	}
   
   	public String getMostFrequentToy()
