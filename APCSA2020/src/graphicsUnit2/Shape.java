@@ -28,6 +28,12 @@ public class Shape
    public Shape(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd)
    {
 		xPos = x;
+		yPos = y;
+		width = wid;
+		height = ht;
+		color = col;
+		xSpeed = xSpd;
+		ySpeed = ySpd;
 		//finish this constructor
    }
 
@@ -38,7 +44,7 @@ public class Shape
    {
       window.setColor(color);
       window.fillRect(xPos, yPos, width, height);
-
+      
       //draw whatever you want
       //    ^
       //  [ :: ]
@@ -63,11 +69,12 @@ public class Shape
    //add in set and get methods for xPos, yPos, xSpeed, and ySpeed
    public int getX()
    {
-   	return 0;
+	   return 0;
    }
 
    public void setX( int x )
    {
+	   xPos = x;
    	//add code here
    }
 
