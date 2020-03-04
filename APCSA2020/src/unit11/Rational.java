@@ -23,16 +23,16 @@ class Rational implements Comparable<Rational>
 	
 	//write a setRational method
 	public void setRational(int x, int y) {
-		int max = Math.max(x, y) - 1;
-		int divide = -1;
-		for(int i = 1; i < max; i++) {
-			if(x % i == 0 && y % i == 0) {
-				divide = i;
+		int divideBy = -1; 
+		int max = Math.max(x, y);
+		for(int i = 1; i < max; i ++) {
+			if (((double)x % i) == 0 && ((double)y % i) == 0) {
+				divideBy = 1;
 			}
 		}
-		if(divide!=-1) {
-			num = x/divide;
-			den = y/divide;
+		if (divideBy != -1) {
+			num = x/divideBy;
+			den = y/divideBy;
 		}
 	}
 
@@ -49,23 +49,33 @@ class Rational implements Comparable<Rational>
 	public void add(Rational  other)
 	{
 		//num1/den1 + num2/den2 
+		num = num * other.getDenominator() + other.getNumerator() * den;
 		//new numerator = (num1 * den2 + num2 * den1)
 		//new denominator = (den1 * den2)
+		den = den * other.getDenominator();
 		reduce();
 	}
 
 	private void reduce()
 	{
-
-
-
+		int divideBy = -1; 
+		int max = 100;
+		for(int i = 1; i < max; i ++) {
+			if (((double)num % i) == 0 && ((double)den % i) == 0) {
+				divideBy = i;
+			}
+		}
+		if (divideBy != -1) {
+			num = num / divideBy;
+			den = den / divideBy;
+		}
 	}
 
 	private int gcd(int numOne, int numTwo)
 	{
-		int min = Math.min(numOne,numTwo);
-		for(int x = min; x > 1; x--) {
-			if(numOne%x==0 && numTwo==0) {
+		int min = Math.min(numOne, numTwo);
+		for(int x = min; x > 1; x --) {
+			if (numOne % x == 0 && numTwo % x == 0) {
 				return x;
 			}
 		}
@@ -84,6 +94,7 @@ class Rational implements Comparable<Rational>
 	public int getNumerator() {
 		return num;
 	}
+	
 	public int getDenominator() {
 		return den;
 	}
@@ -91,7 +102,7 @@ class Rational implements Comparable<Rational>
 	
 	public boolean equals( Object obj)
 	{
-		if((double)num/den == (double)((Rational) obj).getNumerator()/((Rational) obj).getNumerator()) {
+		if((double)num/den==(double)((Rational) obj).getNumerator()/((Rational)obj).getDenominator()) {
 			return true;
 		}
 		return false;
@@ -99,13 +110,11 @@ class Rational implements Comparable<Rational>
 
 	public int compareTo(Rational other)
 	{
-
-
+		if((double)num / den > (double)other.getNumerator()/other.getDenominator()){
+			return 1;
+		}
 		return -1;
 	}
-
-
-
 	
 	//write  toString() method
 	public String toString() {
