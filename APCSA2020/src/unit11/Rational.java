@@ -120,5 +120,4 @@ class Rational implements Comparable<Rational>
 	public String toString() {
 		return num + "/" + den;
 	}
-	
 }
