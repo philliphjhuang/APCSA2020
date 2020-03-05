@@ -30,17 +30,16 @@ public class ToyStore
 		Toy that = getThatToy(toys);
         if (that == null){
             toyList.add(new Toy(toys));
-        }
-        else{
+        } else{
             that.setCount(that.getCount()+1);
         }
 	}
   
-  	public Toy getThatToy( String nm )
+  	public Toy getThatToy(String nm)
   	{
-  		for (Toy toys:toyList){
-            if (toys.getName().equals(nm)){
-                return toys;
+  		for(int i = 0; i < toyList.size(); i++) {
+            if (toyList.get(i).getName().equals(nm)){
+                return toyList.get(i);
             }
         }
         return null;
@@ -49,11 +48,12 @@ public class ToyStore
   	public String getMostFrequentToy()
   	{
   		Toy max = toyList.get(0);
-        for (Toy t:toyList){
-            int m = toyList.get(0).getCount();
-            if (t.getCount()>m){
-                max = t;
-                m=t.getCount();
+  		int m = 0;
+        for(int i = 0; i < toyList.size(); i++) {
+            m = toyList.get(0).getCount();
+            if (toyList.get(i).getCount()>m){
+                max = toyList.get(i);
+                m = toyList.get(i).getCount();
                 
             }
         }
