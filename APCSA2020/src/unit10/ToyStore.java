@@ -15,38 +15,58 @@ public class ToyStore
 
 	public ToyStore()
 	{
+		loadToys("");
 	}
 
+	public ToyStore(String toys) {
+		toyList = new ArrayList<Toy>();
+        for (String t: toys.split(" ")){
+            loadToys(t);
+        }
+	}
+	
 	public void loadToys( String toys )
 	{
-		toyList.add(getThatToy(toys));
+		Toy that = getThatToy(toys);
+        if (that == null){
+            toyList.add(new Toy(toys));
+        }
+        else{
+            that.setCount(that.getCount()+1);
+        }
 	}
   
   	public Toy getThatToy( String nm )
   	{
-  		Toy a = new Toy(nm);
-  		return a;
+  		for (Toy toys:toyList){
+            if (toys.getName().equals(nm)){
+                return toys;
+            }
+        }
+        return null;
   	}
   
   	public String getMostFrequentToy()
   	{
-  		
-  		return "";
+  		Toy max = toyList.get(0);
+        for (Toy t:toyList){
+            int m = toyList.get(0).getCount();
+            if (t.getCount()>m){
+                max = t;
+                m=t.getCount();
+                
+            }
+        }
+        return max.getName();
   	}  
   
   	public void sortToysByCount()
   	{
-  		for(int i = 0 ; i < toyList.size()-1; i++) {
-  			for(int j = 1; j < toyList.size()-i-1; j++) {
-  				if(toyList.get(i).getCount()<toyList.get(j).getCount()) {
-  					int temp = 
-  				}
-  			}
-  		}
+  		Collections.sort(toyList, Collections.reverseOrder());
   	}  
   	  
 	public String toString()
-	{
-	   return "";
+	{ 
+		return toyList+"\n"+"max == " + getMostFrequentToy();
 	}
 }
