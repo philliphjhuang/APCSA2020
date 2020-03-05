@@ -37,8 +37,10 @@ public class ToyStore
   	public void sortToysByCount()
   	{
   		for(int i = 0 ; i < toyList.size()-1; i++) {
-  			for(int j = i; j < toyList.size()-i-1; j++) {
-  				if(toyList.get(i).)
+  			for(int j = 1; j < toyList.size()-i-1; j++) {
+  				if(toyList.get(i).getCount()<toyList.get(j).getCount()) {
+  					int temp = 
+  				}
   			}
   		}
   	}  
