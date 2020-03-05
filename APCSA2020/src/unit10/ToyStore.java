@@ -24,17 +24,23 @@ public class ToyStore
   
   	public Toy getThatToy( String nm )
   	{
-  		Toy a = nm;
+  		Toy a = new Toy(nm);
   		return a;
   	}
   
   	public String getMostFrequentToy()
   	{
+  		
   		return "";
   	}  
   
   	public void sortToysByCount()
   	{
+  		for(int i = 0 ; i < toyList.size()-1; i++) {
+  			for(int j = i; j < toyList.size()-i-1; j++) {
+  				if(toyList.get(i).)
+  			}
+  		}
   	}  
   	  
 	public String toString()
