@@ -15,11 +15,24 @@ public class Card {
 	private int face = -1;
 
 	// constructors
+	public Card() {
+		suit = "SPADES";
+		face = 1;
+		rank = "ACE";
+		pointValue = 1;
+	}
+	
 	public Card(String s, int f) {
 		suit = s;
 		face = f;
 	}
-
+	
+	public Card(String startSuit, String startRank, int startPointValue) {
+		suit = startSuit;
+		rank = startRank;
+		pointValue = startPointValue;
+	}
+	
 	// modifiers
 	public void setSuit(String s) {
 		suit = s;
@@ -62,5 +75,14 @@ public class Card {
 			return FACES[face] + " of " + suit;
 		}
 		return "";
+	}
+	public boolean matches(Card otherCard) {
+		if (this.getSuit().equals(otherCard.getSuit())&&this.getRank().equals(otherCard.getRank())&&this.pointValue==(otherCard.pointValue)) {
+			return true;
+		} else if(this.getSuit().equals(otherCard.getSuit())&&this.getRank().equals(otherCard.getRank())&&this.face==(otherCard.face)) {
+			return true;
+		}
+		
+		return false;
 	}
 }

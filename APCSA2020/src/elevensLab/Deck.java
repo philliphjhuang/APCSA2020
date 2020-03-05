@@ -15,7 +15,7 @@ public class Deck{
 	
 	private List<Card> cards;
 	private int top;
-
+	private int size;
    //make a Deck constructor
 	public Deck() {
 		
@@ -35,19 +35,78 @@ public class Deck{
 		}
 	}
 	
+	public Deck(String[] ranks, String[] suits, int[] pointValues) {
+		cards = new ArrayList<Card>();
+		
+		for (int s = 0; s <suits.length; s++ ) {
+			for (int r = 0; r<ranks.length;r++) {
+				cards.add(new Card(ranks[r],suits[s],pointValues[r]));
+			}
+		}
+		
+		size = cards.size();
+		top = size-1;
+		this.shuffle();
+	}
+	
    //make a dealCard() method that returns the top card
    public Card dealCard() {
-	   return cards.get(top);
+	   Card topCard;
+		if (!isEmpty()) {
+			topCard = cards.get(top);
+		} else {
+			return new Card();
+		}
+
+		top--;
+		size--;
+		return topCard;
    }
+   
+   public boolean isEmpty() {
+		return size() == 0;
+	}
+   
+   public int size() {
+		return size;
+	}
    
    //write a shuffle() method
    public void shuffle() {
-	   
-   	   //use Colletions.shuffle
-	   Collections.shuffle(cards);
-	   
-       //reset the top card 
-	   top = 51;
-	   
+	   for (int k = size-1; k >= 1; k--) {
+			int r = (int) (Math.random()*size);
+			Card temp = cards.get(k);
+			Card temp1 = cards.get(r);
+			cards.set(k,temp1);
+			cards.set(r, temp);
+		}
    }
+   public void resetTop() {
+		size = cards.size();
+		top = size - 1;
+	}
+	
+	public String toString() {
+		String word = "size = " + size + "\nUndealt cards: \n";
+		for (int i = size -1; i >= 0 ; i--) {
+			word = word + cards.get(i);
+			if (i != 0) {
+				word = word +", ";
+			}
+			if ((size - i)% 2 ==0) {
+				word = word + "\n";
+			}
+		}
+		word = word +"\n\nDealt cards: \n";
+		for (int i = cards.size()-1 ; i>=size ; i--) {
+			word = word + cards.get(i);
+			if (i != size) {
+				word = word + ", ";
+			}
+			if ((size - i)% 2 == 0){
+				word = word +"\n";
+			}
+		}
+		return word + "\n";
+	}
 }
