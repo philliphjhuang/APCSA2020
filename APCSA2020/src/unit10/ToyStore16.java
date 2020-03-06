@@ -29,18 +29,24 @@ public class ToyStore16
         }
 	}
 	
+	public void loadToysStart( String toys )
+	{
+		
+		Toy that = getThatToy(toys);
+		if (that == null){
+			toyList.add(new Toy(toys));
+		} else{
+			that.setCount(that.getCount()+1);
+		}
+
+	}
+	
 	public void loadToys( String toys )
 	{
-		String [] toysArr = toys.split(" ");
-		for (String toyStr : toysArr) {
-			Toy toy = getThatToy(toyStr);
-			if (toy != null) {
-				toy.setCount(toy.getCount()+1);
-			}
-			else {
-				toyList.add(new Toy(toyStr));
-			}
-		}
+		toyList.clear();
+		for (String t: toys.split(" ")){
+            loadToysStart(t);
+        }
 	}
   
   	public Toy getThatToy(String nm)
@@ -54,16 +60,18 @@ public class ToyStore16
   
   	public String getMostFrequentToy()
   	{
-  		int mostToyCount = 0;
-  		String mostToyName = "";
-  		for (int i=0; i<toyList.size(); i++) {
-  			if (toyList.get(i).getCount() > mostToyCount) {
-  				mostToyCount = toyList.get(i).getCount();
-  				mostToyName = toyList.get(i).getName();
-  			}
-  		}
-  		return mostToyName;
-  	}
+  		Toy max = toyList.get(0);
+  		int m = 0;
+        for(int i = 0; i < toyList.size(); i++) {
+            m = toyList.get(0).getCount();
+            if (toyList.get(i).getCount()>m){
+                max = toyList.get(i);
+                m = toyList.get(i).getCount();
+                
+            }
+        }
+        return max.getName();
+  	}  
   
   	public void sortToysByCount()
   	{
@@ -72,6 +80,6 @@ public class ToyStore16
   	  
 	public String toString()
 	{ 
-		return toyList+"\n"+"max == " + getMostFrequentToy();
+		return toyList+"";
 	}
 }
