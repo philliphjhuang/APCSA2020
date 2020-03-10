@@ -16,7 +16,7 @@ public class CelebrityGame
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
-	CelebrityFrame gameWindow;
+	public CelebrityFrame gameWindow;
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
@@ -50,6 +50,12 @@ public class CelebrityGame
 	{
 		guess = guess.trim();
 		if(gameCelebrity.getAnswer().equalsIgnoreCase(guess)) {
+			celebGameList.remove(0);
+			if(celebGameList.size()==0) {
+				gameCelebrity = new Celebrity("","");
+			} else {
+				gameCelebrity = celebGameList.get(0);
+			}
 			return true;
 		}
 		return false;
