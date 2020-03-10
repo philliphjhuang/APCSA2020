@@ -12,20 +12,21 @@ public class CelebrityGame
 	/**
 	 * A reference to a Celebrity or subclass instance.
 	 */
-
+	public Celebrity gameCelebrity;
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
-
+	CelebrityFrame gameWindow;
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
-
+	private ArrayList<Celebrity> celebGameList;
 	/**
 	 * Builds the game and starts the GUI
 	 */
 	public CelebrityGame()
 	{
+		gameWindow = new CelebrityFrame(this);
 	}
 
 	/**
@@ -33,6 +34,8 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		celebGameList = new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -45,6 +48,10 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
+		guess = guess.trim();
+		if(gameCelebrity.getAnswer().equalsIgnoreCase(guess)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -55,7 +62,11 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-		
+		if (celebGameList != null && celebGameList.size() > 0 )
+		{
+		this.gameCelebrity = celebGameList.get(0);
+		gameWindow.replaceScreen("GAME");
+		}
 	}
 
 	/**
@@ -70,7 +81,7 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		
+		celebGameList.add(new Celebrity(name,guess));
 	}
 
 	/**
@@ -80,6 +91,10 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
+		name = name.trim();
+		if(name.length()>=4) {
+			return true;
+		}
 		return false;
 	}
 
@@ -92,6 +107,10 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
+		clue = clue.trim();
+		if(clue.length()>=10) {
+			return true;
+		}
 		return false;
 	}
 
@@ -102,7 +121,7 @@ public class CelebrityGame
 	 */
 	public int getCelebrityGameSize()
 	{
-		return 0;
+		return celebGameList.size();
 	}
 
 	/**
@@ -113,7 +132,7 @@ public class CelebrityGame
 	 */
 	public String sendClue()
 	{
-		return null;
+		return gameCelebrity.getClue();
 	}
 
 	/**
@@ -124,6 +143,6 @@ public class CelebrityGame
 	 */
 	public String sendAnswer()
 	{
-		return null;
+		return gameCelebrity.getAnswer();
 	}
 }
