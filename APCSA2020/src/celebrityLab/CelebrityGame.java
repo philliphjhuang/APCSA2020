@@ -20,8 +20,8 @@ public class CelebrityGame
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
-	private ArrayList<Celebrity> celebGameList;
-	/**
+	private ArrayList<Celebrity> celebGameList = new ArrayList<Celebrity>();;
+	/*
 	 * Builds the game and starts the GUI
 	 */
 	public CelebrityGame()
@@ -90,7 +90,7 @@ public class CelebrityGame
 		Celebrity currentCelebrity;
 		if(type.equals("Literature")) {
 			currentCelebrity = new LiteratureCelebrity(name, guess);
-		} else if(type.equals("Esports")) {
+		} else if(type.equals("Esport")) {
 			currentCelebrity = new esportsCelebrity(name, "LeagueOfLegends", guess);
 		} else {
 			currentCelebrity = new Celebrity(name, guess);
