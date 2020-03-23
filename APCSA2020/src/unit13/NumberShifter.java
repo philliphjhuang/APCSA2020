@@ -31,7 +31,7 @@ public class NumberShifter
 						array[j] = array[i];
 						array[i] = temp;
 						break;
-					}
+					} 
 				}
 			}
 		}

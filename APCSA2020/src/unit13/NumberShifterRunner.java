@@ -29,7 +29,7 @@ public class NumberShifterRunner
 		System.out.println("\n\n" + Arrays.toString(array3));
 		ns.shiftEm(array3);
 		System.out.println(Arrays.toString(array3));
-	}
+	} 
 }
 
 
