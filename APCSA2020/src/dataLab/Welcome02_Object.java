@@ -63,3 +63,27 @@ class Observation {
 	      return (temp + " degrees; " + description + " (wind: " + windDir + " degrees)");
 	   }
 	}
+
+
+/* Represents a weather observation 
+class Observation {
+   float temp;    // in fahrenheit
+   int windDir;   // in degrees
+   String description;
+   
+   Observation(String description, float temp, int windDir) {
+      this.description = description;
+      this.temp = temp;
+      this.windDir = windDir;
+   }
+   
+   /* determine if the temperature of this observation is colder than 'that's *//*
+   public boolean colderThan(Observation that) {
+      return this.temp < that.temp;
+   }
+   
+   /* produce a string describing this observation *//*
+   public String toString() {
+      return (temp + " degrees; " + description + " (wind: " + windDir + " degrees)");
+   }
+}*/

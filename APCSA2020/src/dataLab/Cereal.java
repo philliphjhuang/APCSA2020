@@ -2,7 +2,6 @@ package dataLab;
 
 //which cereal is best for low carbs and high protein
 import java.util.ArrayList;
-@SuppressWarnings("unused")
 public class Cereal {
 	private String name;
 	private int carbs, protein;

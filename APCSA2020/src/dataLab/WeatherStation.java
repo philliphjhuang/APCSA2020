@@ -4,11 +4,10 @@ package dataLab;
 */
 
 public class WeatherStation {
-   private String name;
-   private String id;
-   private String state;
-   private double lat;
-   @SuppressWarnings("unused")
+private String name;
+private String id;
+private String state;
+private double lat;
 private double lng;
    
    WeatherStation(String name, String id, String state, double lat, double lng) {

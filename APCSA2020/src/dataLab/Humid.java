@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import core.data.DataSource;
 
-@SuppressWarnings("unused")
 public class Humid {
 	 public static void main(String[] args) {
 		 DataSource ds = DataSource.connect("http://weather.gov/xml/current_obs/index.xml").load();

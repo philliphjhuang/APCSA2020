@@ -6,7 +6,6 @@ public class CerealRunner {
 	public static void main(String [] args)
 	{
 		ArrayList<Cereal> clist = new ArrayList<Cereal>();
-		//100 % bran has the lowest ratio, at 1.25, higher ratios are less healthy
 		clist.add(new Cereal("100% Bran",5,4));
 		clist.add(new Cereal("100% Natural Bran",8,3));
 		clist.add(new Cereal("All-Bran",7,4));
@@ -24,6 +23,9 @@ public class CerealRunner {
 			if (ratio < bestRatio) {
 				best = i;
 			}
+		}
+		for(Cereal c: clist) {
+			System.out.println(c);
 		}
 		System.out.println("The best cereal for low carbs and high protein is: " + best);
 	}
