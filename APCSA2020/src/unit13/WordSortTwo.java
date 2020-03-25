@@ -18,16 +18,11 @@ public class WordSortTwo
 
 	public void sort()
 	{
-		for(int i = 0; i < wordRay.length - 1; i++) {
-			for(int j = i + 1; j < wordRay.length; j++) {
-				
-			}
-		}
+		Arrays.parallelSort(wordRay);
 	}
 
 	public String toString()
 	{
-		String output="";
-		return output+"\n\n";
+		return Arrays.toString(wordRay);
 	}
 }
