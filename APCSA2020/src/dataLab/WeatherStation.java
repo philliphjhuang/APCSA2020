@@ -8,7 +8,8 @@ public class WeatherStation {
    private String id;
    private String state;
    private double lat;
-   private double lng;
+   @SuppressWarnings("unused")
+private double lng;
    
    WeatherStation(String name, String id, String state, double lat, double lng) {
       this.name = name;
@@ -26,6 +27,10 @@ public class WeatherStation {
    /* Produce the name of this station */
    public String getName() { 
       return name;
+   }
+   
+   public double getLat() {
+	   return lat;
    }
    
    /* Determine if this weather station is located in the given state */
