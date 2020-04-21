@@ -10,7 +10,7 @@ public class Humid {
 		 DataSource ds = DataSource.connect("http://weather.gov/xml/current_obs/index.xml").load();
 	     ArrayList<HumidStation> allStations = ds.fetchList(HumidStation.class, "station/station_name", "station/state","station/station_id");
 	     @SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
+		 Scanner sc = new Scanner(System.in);
 	     System.out.println("Enter the state abbreviation to find the the humidity at all stations: ");
 	     String state = sc.next();
 	     for (HumidStation hs: allStations) {

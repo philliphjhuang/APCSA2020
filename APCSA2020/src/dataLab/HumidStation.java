@@ -38,6 +38,6 @@ public class HumidStation {
 		return humidity;
 	}
 	public String toString() {
-		return "Station " + name + " in state "+state+"has a humidity of: " + humidity + "%";
+		return "Station " + name + " in state " + state + " has a humidity of " + humidity + "%";
 	}
 }
