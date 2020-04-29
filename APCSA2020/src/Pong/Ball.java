@@ -16,35 +16,32 @@ public class Ball extends Block
 		super(200, 200);
 		xSpeed = 3;
 		ySpeed = 1;
+		setWidth(10);
+		setHeight(10);
 	}
 
 	//add the other Ball constructors
-	public Ball(Color c) 
-	{
-		super(200,200,c);
-		setXSpeed(2);
-		setYSpeed(2);
-	}
-	
 	public Ball(int x, int y)
 	{
 		super(x,y);
-		setXSpeed(2);
-		setYSpeed(2);
+		setXSpeed(3);
+		setYSpeed(1);
+		setWidth(10);
+		setHeight(10);
 	}
 	
 	public Ball(int x, int y, int w, int h)
 	{
 		super(x,y,w,h);
-		setXSpeed(2);
-		setYSpeed(2);
+		setXSpeed(3);
+		setYSpeed(1);
 	}
 	
 	public Ball(int x, int y, int w, int h, Color c) 
 	{
 		super(x,y,w,h,c);
-		setXSpeed(2);
-		setYSpeed(2);
+		setXSpeed(3);
+		setYSpeed(1);
 	}
 	
 	public Ball(int x, int y, int w, int h, Color c, int xs, int ys)
@@ -100,6 +97,6 @@ public class Ball extends Block
    //add a toString() method
 	public String toString()
 	{
-		return super.toString();
+		return super.toString() + " " + xSpeed + " " + ySpeed;
 	}
 }
