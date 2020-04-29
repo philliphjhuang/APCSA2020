@@ -13,13 +13,19 @@ public class Ball extends Block
 
 	public Ball()
 	{
-		super();
+		super(200, 200);
 		xSpeed = 3;
 		ySpeed = 1;
 	}
 
 	//add the other Ball constructors
-
+	public Ball(Color c) 
+	{
+		super(200,200,c);
+		setXSpeed(2);
+		setYSpeed(2);
+	}
+	
 	public Ball(int x, int y)
 	{
 		super(x,y);
@@ -48,12 +54,6 @@ public class Ball extends Block
 		setYSpeed(ys);
 	}
 	
-	
-	
-	
-	
-	
-	   
    //add the set methods
    public void setXSpeed(int xSpeed)
    {
@@ -100,6 +100,6 @@ public class Ball extends Block
    //add a toString() method
 	public String toString()
 	{
-		return null;
+		return super.toString();
 	}
 }
