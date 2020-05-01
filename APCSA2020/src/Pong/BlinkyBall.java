@@ -19,27 +19,27 @@ class BlinkyBall extends Ball {
 		super(x, y);
 	}
 
-	public BlinkyBall(int x, int y, int wid, int ht) {
-		super(x, y, wid, ht);
+	public BlinkyBall(int x, int y, int w, int h) {
+		super(x, y, w, h);
 	}
 
-	public BlinkyBall(int x, int y, int wid, int ht, Color c) {
-		super(x, y, wid, ht, c);
+	public BlinkyBall(int x, int y, int w, int h, Color c) {
+		super(x, y, w, h, c);
 	}
 
-	public BlinkyBall(int x, int y, int wid, int ht, int xSpd, int ySpd) {
-		super(x, y, wid, ht, xSpd, ySpd);
+	public BlinkyBall(int x, int y, int w, int h, int xS, int ySpd) {
+		super(x, y, w, h, xS, ySpd);
 	}
 
-	public BlinkyBall(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd) {
-		super(x, y, wid, ht, col, xSpd, ySpd);
+	public BlinkyBall(int x, int y, int w, int h, Color c, int xS, int yS) {
+		super(x, y, w, h, c, xS, yS);
 	}
 
-	public void setColor(Color c) {
+	public void setcor(Color c) {
 		super.setColor(c);
 	}
 
-	public Color randomColor() {
+	public Color randomcor() {
 		int r = (int) (Math.random() * 256); // use Math.random()
 		int g = (int) (Math.random() * 256);
 		int b = (int) (Math.random() * 256);
@@ -47,7 +47,7 @@ class BlinkyBall extends Ball {
 	}
 
 	public void moveAndDraw(Graphics window) {
-		setColor(randomColor());
+		setcor(randomcor());
 		super.moveAndDraw(window);
 	}
 }

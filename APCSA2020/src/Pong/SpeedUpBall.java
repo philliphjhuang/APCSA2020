@@ -20,16 +20,16 @@ class SpeedUpBall extends Ball {
 		super(x, y);
 	}
 
-	public SpeedUpBall(int x, int y, int xSpd, int ySpd) {
-		super(x, y, xSpd, ySpd);
+	public SpeedUpBall(int x, int y, int xS, int yS) {
+		super(x, y, xS, yS);
 	}
 
-	public SpeedUpBall(int x, int y, int wid, int ht, int xSpd, int ySpd) {
-		super(x, y, wid, ht, xSpd, ySpd);
+	public SpeedUpBall(int x, int y, int w, int h, int xS, int yS) {
+		super(x, y, w, h, xS, yS);
 	}
 
-	public SpeedUpBall(int x, int y, int wid, int ht, Color col, int xSpd, int ySpd) {
-		super(x, y, wid, ht, col, xSpd, ySpd);
+	public SpeedUpBall(int x, int y, int w, int h, Color c, int xS, int yS) {
+		super(x, y, w, h, c, xS, yS);
 	}
 
 	public void setXSpeed() {

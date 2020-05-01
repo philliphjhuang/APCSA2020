@@ -97,9 +97,9 @@ public class Block implements Locatable {
 	}
 
 	public boolean equals(Object obj) {
-		Block boi = (Block) obj;
-		if (xPos == boi.getX() && yPos == boi.getY() && width == boi.getWidth() && height == boi.getHeight()
-				&& color.equals(boi.getColor()))
+		Block b = (Block) obj;
+		if (xPos == b.getX() && yPos == b.getY() && width == b.getWidth() && height == b.getHeight()
+				&& color.equals(b.getColor()))
 			return true;
 		return false;
 	}

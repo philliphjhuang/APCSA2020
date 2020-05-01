@@ -42,25 +42,27 @@ public class Ball extends Block implements Collidable {
 		setYSpeed(2);
 	}
 
+	public Ball(int x, int y, int w, int h, int xS, int yS) {
+		super(x, y, w, h);
+		setXSpeed(xS);
+		setYSpeed(yS);
+	}
+	
 	public Ball(int x, int y, int w, int h, Color c, int xS, int yS) {
 		super(x, y, w, h, c);
 		setXSpeed(xS);
 		setYSpeed(yS);
 	}
 
-	public Ball(int x, int y, int w, int h, int xS, int yS) {
-		super(x, y, w, h);
-		setXSpeed(xS);
-		setYSpeed(yS);
-	}
+	
 
 	// add the set methods
-	public void setXSpeed(int xSpeed) {
-		this.xSpeed = xSpeed;
+	public void setXSpeed(int xS) {
+		xSpeed = xS;
 	}
 
-	public void setYSpeed(int ySpeed) {
-		this.ySpeed = ySpeed;
+	public void setYSpeed(int yS) {
+		ySpeed = yS;
 	}
 
 	public void moveAndDraw(Graphics window) {
@@ -108,8 +110,8 @@ public class Ball extends Block implements Collidable {
 	@Override
 	public boolean didCollideLeft(Object obj) {
 		// TODO Auto-generated method stub
-		Block boi = (Block) obj;
-		if (getX() <= boi.getX() + boi.getWidth())
+		Block b = (Block) obj;
+		if (getX() <= b.getX() + b.getWidth())
 			return true;
 		return false;
 	}
@@ -117,8 +119,8 @@ public class Ball extends Block implements Collidable {
 	@Override
 	public boolean didCollideRight(Object obj) {
 		// TODO Auto-generated method stub
-		Block boi = (Block) obj;
-		if (getX() + getWidth() >= boi.getX())
+		Block b = (Block) obj;
+		if (getX() + getWidth() >= b.getX())
 			return true;
 		return false;
 	}
@@ -126,8 +128,8 @@ public class Ball extends Block implements Collidable {
 	@Override
 	public boolean didCollideTop(Object obj) {
 		// TODO Auto-generated method stub
-		Block boi = (Block) obj;
-		if (getY() <= boi.getY())
+		Block b = (Block) obj;
+		if (getY() <= b.getY())
 			return true;
 		return false;
 	}
@@ -135,8 +137,8 @@ public class Ball extends Block implements Collidable {
 	@Override
 	public boolean didCollideBottom(Object obj) {
 		// TODO Auto-generated method stub
-		Block boi = (Block) obj;
-		if (getY() >= boi.getY() + boi.getHeight())
+		Block b = (Block) obj;
+		if (getY() >= b.getY() + b.getHeight())
 			return true;
 		return false;
 	}

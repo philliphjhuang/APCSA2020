@@ -14,38 +14,27 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 
 public class Pong extends Canvas implements KeyListener, Runnable {
-	// private Ball ball;
-	// private SpeedUpBall ball;
-	// private InvisBall ball;
+	
 	private BlinkyBall ball;
-	private Paddle leftPaddle;
-	private Paddle rightPaddle;
+	private Paddle leftPaddle, rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	private int player1, player2, width, height;
-	private Wall top, right, left, bottom;
-
+	private int player1Score = 0, player2Score = 0, width, height;
+	private Wall topWall, rightWall, leftWall, bottomWall;
+	
 	public Pong() {
 		// set up all variables related to the game
-		width = 800;
-		height = 800;
-		ball = new BlinkyBall(300, 300, 10, 10, Color.blue);
-		// ball = new SpeedUpBall(300,300,10,10,Color.blue,2,2);
-		// ball = new Ball(300,300,10,10,Color.blue);
-		// ball = new InvisBall(300,300,10,10,Color.blue);
-		leftPaddle = new Paddle(20, 20, 20, 100, 2);
-		rightPaddle = new Paddle(720, 20, 20, 100, 2);
-		top = new Wall(0, 0, width, 0);
-		right = new Wall(width, 0, 0, height);
-		left = new Wall(0, 0, 0, height);
-		bottom = new Wall(0, height, 0, 0);
-		player1 = 0;
-		player2 = 0;
-		// System.out.println(height);
+		ball = new BlinkyBall(300, 300, 10, 10, Color.black);
+		leftPaddle = new Paddle(20, 0, 20, 100, Color.blue, 2);
+		rightPaddle = new Paddle(740, 0, 20, 100, Color.red, 2);
+		topWall = new Wall(0, 0, width, 0);
+		rightWall = new Wall(width, 0, 0, height);
+		leftWall = new Wall(0, 0, 0, height);
+		bottomWall = new Wall(0, height, 0, 0);
 
 		keys = new boolean[4];
 
-		setBackground(Color.WHITE);
+		setBackground(Color.white);
 		setVisible(true);
 
 		new Thread(this).start();
@@ -74,33 +63,32 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		rightPaddle.draw(graphToBack);
 		width = getWidth();
 		height = getHeight();
-		top = new Wall(0, 0, width, 0);
-		right = new Wall(width, 0, 0, height);
-		left = new Wall(0, 0, 0, height);
-		bottom = new Wall(0, height - 10, 0, 0);
-		graphToBack.drawString("Player 1: " + player1, 300, 100);
-		graphToBack.drawString("Player 2: " + player2, 300, 120);
-
+		bottomWall = new Wall(0, height - 10, 0, 0);
+		topWall = new Wall(0, 0, width, 0);
+		rightWall = new Wall(width, 0, 0, height);
+		leftWall = new Wall(0, 0, 0, height);
+		
+		graphToBack.setColor(Color.blue);
+		graphToBack.drawString("Player 1: " + player1Score, 375, 500);
+		graphToBack.setColor(Color.red);
+		graphToBack.drawString("Player 2: " + player2Score, 375, 520);
+		
 		// see if ball hits left wall or right wall
-		if (ball.didCollideLeft(left)) {
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+		if (ball.didCollideRight(rightWall)) {
 			graphToBack.setColor(Color.white);
-			graphToBack.drawString("Player 2: " + player2, 300, 120);
-			player2++;
+			graphToBack.drawString("Player 1: " + player1Score, 375, 500);
+			player1Score++;
 			ball.resetBall(graphToBack);
 		}
-		if (ball.didCollideRight(right)) {
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
+		if (ball.didCollideLeft(leftWall)) {
 			graphToBack.setColor(Color.white);
-			graphToBack.drawString("Player 1: " + player1, 300, 100);
-			player1++;
+			graphToBack.drawString("Player 2: " + player2Score, 375, 520);
+			player2Score++;
 			ball.resetBall(graphToBack);
 		}
 
 		// see if the ball hits the top or bottom wall
-		if (ball.didCollideBottom(bottom) || ball.didCollideTop(top)) {
+		if (ball.didCollideBottom(bottomWall) || ball.didCollideTop(topWall)) {
 			ball.setYSpeed(-ball.getYSpeed());
 		}
 
@@ -116,7 +104,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 
 		// see if the paddles need to be moved
 		if (keys[0] == true) {
-			if (leftPaddle.getY() >= 10) {
+			if (leftPaddle.getY() >= 1) {
 				leftPaddle.moveUpAndDraw(graphToBack);
 			}
 		}
@@ -126,7 +114,7 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 			}
 		}
 		if (keys[2] == true) {
-			if (rightPaddle.getY() >= 10) {
+			if (rightPaddle.getY() >= 1) {
 				rightPaddle.moveUpAndDraw(graphToBack);
 			}
 		}
@@ -135,7 +123,6 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 				rightPaddle.moveDownAndDraw(graphToBack);
 			}
 		}
-
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 

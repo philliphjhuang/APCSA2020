@@ -10,13 +10,13 @@ public class Wall extends Block{
 		super();
 	}
 	public Wall(int x, int y) {
-		super(x,y);
+		super(x, y);
 	}
 	public Wall(int x, int y, int w, int h) {
-		super(x,y,w,h);
+		super(x, y,w ,h);
 	}
 	public Wall(int x, int y, int w, int h, Color c) {
-		super(x,y,w,h,c);
+		super(x, y, w, h, c);
 	}
 	public void draw(Graphics window) {
 		super.draw(window);
