@@ -1,9 +1,16 @@
 package Pong;
+//(c) A+ Computer Science
+
+//www.apluscompsci.com
+//Name -
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class InvisibleBall extends Ball {
+class InvisibleBall extends Ball {
+
+	private int first = (int) (Math.random() * 1000);
+	private int count = -5;
 
 	// constructors
 	public InvisibleBall() {
@@ -30,20 +37,25 @@ public class InvisibleBall extends Ball {
 		super(x, y, w, h, c, xS, yS);
 	}
 
-	public void setInvisible() {
-		if (randomChance() > 200)
-			super.setColor(Color.white);
-		else
-			super.setColor(Color.blue);
+	public void setcor(Color c) {
+		super.setColor(c);
 	}
 
-	public int randomChance() {
-		int r = (int) (Math.random() * 256);
-		return r;
+	public Color randomcor() {
+		if (count > first + 100) {
+			count = 0;
+			first = (int) (Math.random() * 2000);
+		}
+		count += 1;
+		if (count > first) {
+			return new Color(255, 255, 255);
+		} else {
+			return Color.black;
+		}
 	}
 
 	public void moveAndDraw(Graphics window) {
-		setInvisible();
+		setcor(randomcor());
 		super.moveAndDraw(window);
 	}
 }

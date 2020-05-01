@@ -14,23 +14,25 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 
 public class Pong extends Canvas implements KeyListener, Runnable {
-	
-	private BlinkyBall ball;
+
+	private InvisibleBall ball;
+	private BlinkyBall ball2;
 	private Paddle leftPaddle, rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
 	private int player1Score = 0, player2Score = 0, width, height;
 	private Wall topWall, rightWall, leftWall, bottomWall;
-	
+
 	public Pong() {
 		// set up all variables related to the game
-		ball = new BlinkyBall(300, 300, 10, 10, Color.black);
-		leftPaddle = new Paddle(20, 0, 20, 100, Color.blue, 2);
-		rightPaddle = new Paddle(740, 0, 20, 100, Color.red, 2);
+		ball = new InvisibleBall(300, 300, 10, 10, Color.black);
+		ball2 = new BlinkyBall(300, 300, 10, 10, Color.black);
+		leftPaddle = new Paddle(20, 300, 20, 100, Color.blue, 2);
+		rightPaddle = new Paddle(740, 300, 20, 100, Color.red, 2);
 		topWall = new Wall(0, 0, width, 0);
 		rightWall = new Wall(width, 0, 0, height);
 		leftWall = new Wall(0, 0, 0, height);
-		bottomWall = new Wall(0, height, 0, 0);
+		bottomWall = new Wall(0, height, width, 0);
 
 		keys = new boolean[4];
 
@@ -59,47 +61,87 @@ public class Pong extends Canvas implements KeyListener, Runnable {
 		Graphics graphToBack = back.createGraphics();
 
 		ball.moveAndDraw(graphToBack);
+		ball2.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
 		width = getWidth();
 		height = getHeight();
-		bottomWall = new Wall(0, height - 10, 0, 0);
+		bottomWall = new Wall(0, height - 10, width, 0);
 		topWall = new Wall(0, 0, width, 0);
 		rightWall = new Wall(width, 0, 0, height);
 		leftWall = new Wall(0, 0, 0, height);
-		
+
 		graphToBack.setColor(Color.blue);
-		graphToBack.drawString("Player 1: " + player1Score, 375, 500);
+		graphToBack.drawString("" + player1Score, 350, 550);
 		graphToBack.setColor(Color.red);
-		graphToBack.drawString("Player 2: " + player2Score, 375, 520);
-		
+		graphToBack.drawString("" + player2Score, 380, 550);
+
 		// see if ball hits left wall or right wall
 		if (ball.didCollideRight(rightWall)) {
 			graphToBack.setColor(Color.white);
-			graphToBack.drawString("Player 1: " + player1Score, 375, 500);
+			graphToBack.drawString("" + player1Score, 350, 550);
 			player1Score++;
 			ball.resetBall(graphToBack);
 		}
+		if (ball2.didCollideRight(rightWall)) {
+			graphToBack.setColor(Color.white);
+			graphToBack.drawString("" + player1Score, 350, 550);
+			player1Score++;
+			ball2.resetBall(graphToBack);
+		}
 		if (ball.didCollideLeft(leftWall)) {
 			graphToBack.setColor(Color.white);
-			graphToBack.drawString("Player 2: " + player2Score, 375, 520);
+			graphToBack.drawString("" + player2Score, 380, 550);
 			player2Score++;
 			ball.resetBall(graphToBack);
+		}
+		if (ball2.didCollideLeft(leftWall)) {
+			graphToBack.setColor(Color.white);
+			graphToBack.drawString("" + player2Score, 380, 550);
+			player2Score++;
+			ball2.resetBall(graphToBack);
 		}
 
 		// see if the ball hits the top or bottom wall
 		if (ball.didCollideBottom(bottomWall) || ball.didCollideTop(topWall)) {
+			if (ball.getXSpeed() > 0) {
+				ball.setXSpeed(ball.getXSpeed() + 1);
+
+			}
+			if (ball.getXSpeed() < 0) {
+				ball.setXSpeed(ball.getXSpeed() - 1);
+			}
 			ball.setYSpeed(-ball.getYSpeed());
+		}
+		if (ball2.didCollideBottom(bottomWall) || ball2.didCollideTop(topWall)) {
+			if (ball2.getXSpeed() > 0) {
+				ball2.setXSpeed(ball2.getXSpeed() + 1);
+
+			}
+			if (ball2.getXSpeed() < 0) {
+				ball2.setXSpeed(ball2.getXSpeed() - 1);
+			}
+			ball2.setYSpeed(-ball2.getYSpeed());
 		}
 
 		// see if the ball hits the left paddle
-		if (ball.didCollideLeft(leftPaddle) && !(ball.didCollideBottom(leftPaddle)) && !(ball.didCollideTop(leftPaddle))) {
-			ball.setXSpeed(-ball.getXSpeed());
+		if (ball.didCollideLeft(leftPaddle) && !(ball.didCollideBottom(leftPaddle))
+				&& !(ball.didCollideTop(leftPaddle))) {
+			ball.setXSpeed(-ball.getXSpeed() + 1);
+		}
+		if (ball2.didCollideLeft(leftPaddle) && !(ball2.didCollideBottom(leftPaddle))
+				&& !(ball2.didCollideTop(leftPaddle))) {
+			ball2.setXSpeed(-ball2.getXSpeed() + 1);
 		}
 
 		// see if the ball hits the right paddle
-		if (ball.didCollideRight(rightPaddle) && !(ball.didCollideBottom(rightPaddle)) && !(ball.didCollideTop(rightPaddle))) {
-			ball.setXSpeed(-ball.getXSpeed());
+		if (ball.didCollideRight(rightPaddle) && !(ball.didCollideBottom(rightPaddle))
+				&& !(ball.didCollideTop(rightPaddle))) {
+			ball.setXSpeed(-ball.getXSpeed() - 1);
+		}
+		if (ball2.didCollideRight(rightPaddle) && !(ball2.didCollideBottom(rightPaddle))
+				&& !(ball2.didCollideTop(rightPaddle))) {
+			ball2.setXSpeed(-ball2.getXSpeed() - 1);
 		}
 
 		// see if the paddles need to be moved

@@ -33,13 +33,14 @@ public class Ball extends Block implements Collidable {
 	public Ball(int x, int y, int w, int h) {
 		super(x, y, w, h);
 		setXSpeed(2);
-		setYSpeed(2);
+		setYSpeed((int) (Math.random() + 4) - 2);
 	}
 
 	public Ball(int x, int y, int w, int h, Color c) {
 		super(x, y, w, h, c);
 		setXSpeed(2);
-		setYSpeed(2);
+		ySpeed = (int) (Math.random() + 4) - 2;
+		System.out.println("" + ySpeed);
 	}
 
 	public Ball(int x, int y, int w, int h, int xS, int yS) {
@@ -47,14 +48,12 @@ public class Ball extends Block implements Collidable {
 		setXSpeed(xS);
 		setYSpeed(yS);
 	}
-	
+
 	public Ball(int x, int y, int w, int h, Color c, int xS, int yS) {
 		super(x, y, w, h, c);
 		setXSpeed(xS);
 		setYSpeed(yS);
 	}
-
-	
 
 	// add the set methods
 	public void setXSpeed(int xS) {
@@ -89,8 +88,13 @@ public class Ball extends Block implements Collidable {
 		draw(window, Color.white);
 		setX(300);
 		setY(300);
-		setXSpeed(2);
-		setYSpeed(2);
+		double a = Math.random();
+		if (a > .5) {
+			setXSpeed(2);
+		} else {
+			setXSpeed(-2);
+		}
+		setYSpeed((int) (Math.random() * 4) - 2);
 	}
 
 	// add the get methods
