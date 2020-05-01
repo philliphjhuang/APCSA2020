@@ -1,16 +1,11 @@
-package Pong;
 //(c) A+ Computer Science
-
 //www.apluscompsci.com
 //Name -
+package Pong;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Canvas;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 class BallTestTwo extends Canvas implements Runnable {
 	private Ball ball;
@@ -18,18 +13,18 @@ class BallTestTwo extends Canvas implements Runnable {
 	public BallTestTwo() {
 		setBackground(Color.WHITE);
 		setVisible(true);
-		
-		//instantiate a new Ball
+
+		// instantiate a new Ball
 		ball = new Ball();
 
-		//test the Ball thoroughly
+		// test the Ball thoroughly
 		System.out.println(ball);
 
-		//test all constructors
-		ball = new Ball(20,20);
-		ball = new Ball(30,30,30,30);
-		ball = new Ball(10,10,10,10, Color.RED);
-		ball = new Ball(15,15,15,15,Color.blue,2,2);
+		// test all constructors
+		ball = new Ball(20, 20);
+		ball = new Ball(30, 30, 30, 30);
+		ball = new Ball(10, 10, 10, 10, Color.RED);
+		ball = new Ball(15, 15, 15, 15, Color.blue, 2, 2);
 
 		new Thread(this).start();
 	}
@@ -41,13 +36,11 @@ class BallTestTwo extends Canvas implements Runnable {
 	public void paint(Graphics window) {
 		ball.moveAndDraw(window);
 
-		if(!(ball.getX()>=10 && ball.getX()<=550))
-		{
+		if (!(ball.getX() >= 10 && ball.getX() <= 550)) {
 			ball.setXSpeed(-ball.getXSpeed());
 		}
 
-		if(!(ball.getY()>=10 && ball.getY()<=450))
-		{
+		if (!(ball.getY() >= 10 && ball.getY() <= 450)) {
 			ball.setYSpeed(-ball.getYSpeed());
 		}
 	}
