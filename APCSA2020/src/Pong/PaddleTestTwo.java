@@ -23,19 +23,19 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 	public PaddleTestTwo()
 	{
 		//set up all game variables
-
+		
 
 		//instantiate a Ball
-		
+		ball = new Ball();
 		
 		
 		//instantiate a left Paddle
-		
+		leftPaddle = new Paddle();
 		
 		
 		
 		//instantiate a right Paddle
-		
+		Paddle right = new Paddle();
 		
 		
 

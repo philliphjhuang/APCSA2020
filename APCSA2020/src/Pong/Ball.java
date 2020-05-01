@@ -6,7 +6,7 @@ package Pong;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ball extends Block
+public class Ball extends Block implements Collidable
 {
 	private int xSpeed;
 	private int ySpeed;
@@ -42,6 +42,12 @@ public class Ball extends Block
 		super(x,y,w,h,c);
 		setXSpeed(3);
 		setYSpeed(1);
+	}
+	
+	public Ball(int x, int y, int w, int h, int xS, int yS) {
+		super(x,y,w,h);
+		setXSpeed(xS);
+		setYSpeed(yS);
 	}
 	
 	public Ball(int x, int y, int w, int h, Color c, int xs, int ys)
@@ -83,7 +89,14 @@ public class Ball extends Block
 		}
 		return false;
 	}   
-
+	public void resetBall(Graphics window) {
+		draw(window, Color.white);
+		setX(300);
+		setY(300);
+		setXSpeed(2);
+		setYSpeed(2);
+	}
+	
    //add the get methods
 	public int getXSpeed() 
 	{
@@ -98,5 +111,42 @@ public class Ball extends Block
 	public String toString()
 	{
 		return super.toString() + " " + xSpeed + " " + ySpeed;
+	}
+	
+	
+	@Override
+	public boolean didCollideLeft(Object obj) {
+		// TODO Auto-generated method stub
+		Block b = (Block)obj;
+		if(getX() <= b.getX()+b.getWidth())
+			return true;
+		return false;
+	}
+
+	@Override
+	public boolean didCollideRight(Object obj) {
+		// TODO Auto-generated method stub
+		Block b = (Block)obj;
+		if(getX()+getWidth() >= b.getX())
+			return true;
+		return false;
+	}
+
+	@Override
+	public boolean didCollideTop(Object obj) {
+		// TODO Auto-generated method stub
+		Block b = (Block)obj;
+		if(getY() <= b.getY())
+			return true;
+		return false;
+	}
+
+	@Override
+	public boolean didCollideBottom(Object obj) {
+		// TODO Auto-generated method stub
+		Block b = (Block)obj;
+		if(getY() >= b.getY()+b.getHeight())
+			return true;
+		return false;
 	}
 }

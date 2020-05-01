@@ -10,31 +10,26 @@ import java.awt.Graphics2D;
 import java.awt.Canvas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 class BallTestTwo extends Canvas implements Runnable {
-	private Ball[] balls = new Ball[5];
+	private Ball ball;
 
 	public BallTestTwo() {
 		setBackground(Color.WHITE);
 		setVisible(true);
+		
+		//instantiate a new Ball
+		ball = new Ball();
 
-		// instantiate a new Ball
-		Ball zero = new Ball();
-		// test the Ball thoroughly
-		balls[0] = zero;
+		//test the Ball thoroughly
+		System.out.println(ball);
 
-		// test all constructors
-		Ball one = new Ball(20, 20);
-		balls[1] = one;
-
-		Ball two = new Ball(30, 30, 30, 30);
-		balls[2] = two;
-
-		Ball three = new Ball(10, 10, 10, 10, Color.RED);
-		balls[3] = three;
-
-		Ball four = new Ball(15, 15, 15, 15, Color.blue, 2, 2);
-		balls[4] = four;
+		//test all constructors
+		ball = new Ball(20,20);
+		ball = new Ball(30,30,30,30);
+		ball = new Ball(10,10,10,10, Color.RED);
+		ball = new Ball(15,15,15,15,Color.blue,2,2);
 
 		new Thread(this).start();
 	}
@@ -44,16 +39,16 @@ class BallTestTwo extends Canvas implements Runnable {
 	}
 
 	public void paint(Graphics window) {
-		for (Ball ball : balls) {
-			ball.moveAndDraw(window);
+		ball.moveAndDraw(window);
 
-			if (!(ball.getX() >= 10 && ball.getX() <= 550)) {
-				ball.setXSpeed(-ball.getXSpeed());
-			}
+		if(!(ball.getX()>=10 && ball.getX()<=550))
+		{
+			ball.setXSpeed(-ball.getXSpeed());
+		}
 
-			if (!(ball.getY() >= 10 && ball.getY() <= 450)) {
-				ball.setYSpeed(-ball.getYSpeed());
-			}
+		if(!(ball.getY()>=10 && ball.getY()<=450))
+		{
+			ball.setYSpeed(-ball.getYSpeed());
 		}
 	}
 
