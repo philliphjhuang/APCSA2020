@@ -1,5 +1,6 @@
 package WinterScene;
 //(c) A+ Computer Science
+
 //www.apluscompsci.com
 //Name -
 
@@ -11,15 +12,13 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GraphicsRunner extends JFrame
-{
+public class GraphicsRunner extends JFrame {
 	private static final int WIDTH = 800;
 	private static final int HEIGHT = 600;
 
-	public GraphicsRunner()
-	{
+	public GraphicsRunner() {
 		super("THE WINTER SCENE PROJECT");
-		setSize(WIDTH,HEIGHT);
+		setSize(WIDTH, HEIGHT);
 
 		getContentPane().add(new WinterScenePanel());
 
@@ -28,8 +27,7 @@ public class GraphicsRunner extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public static void main( String args[] )
-	{
+	public static void main(String args[]) {
 		GraphicsRunner run = new GraphicsRunner();
 	}
 }
