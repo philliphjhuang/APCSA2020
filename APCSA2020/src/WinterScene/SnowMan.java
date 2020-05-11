@@ -24,6 +24,10 @@ public class SnowMan extends AbstractShape {
 		window.fillOval(super.getXPos() + 120, super.getYPos() , super.getWidth() - 95, super.getHeight() - 95);
 		window.fillRect(super.getXPos()+90, super.getYPos()-118, 50, 50);
 		window.fillRect(super.getXPos()+40, super.getYPos()-60, 150, 10);
+		
+		window.drawLine(super.getXPos(), super.getYPos(), super.getXPos()+50, super.getYPos()+50);
+		window.drawLine(super.getXPos()+250, super.getYPos(), super.getXPos()+200, super.getYPos()+50);
+		
 		window.setColor(Color.orange);
 		window.fillRect(super.getXPos()+90, super.getYPos()-67, 50, 7);
 		int[] x = {super.getXPos() +125, super.getXPos() + 125, super.getXPos()};

@@ -38,7 +38,7 @@ public class Tree extends AbstractShape {
 			window.fillOval(super.getXPos()-100+x, super.getYPos()-100+y, 10, 10);
 		}
 		window.setColor(Color.yellow);
-		int[] x = {210+42,210+52,210+71,210+52,210+65,210+40,210+15,210+28,210+9,210+32,210+42};
+		int[] x = {210+40,210+48,210+69,210+50,210+63,210+40,210+15,210+28,210+9,210+32,210+40};
 		int[] y = {32+13 ,60+13 ,60+13 ,75+13 ,105+13,85+13 ,105+13,75+13 ,60+13,60+13 ,32+13};
 		window.fillPolygon(x , y, 11);
 	}
