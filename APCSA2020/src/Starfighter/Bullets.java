@@ -17,19 +17,27 @@ public class Bullets
 
 	public Bullets()
 	{
+		ammo = new ArrayList<Ammo>();
 	}
 
 	public void add(Ammo al)
 	{
+		ammo.add(al);
 	}
 
 	//post - draw each Ammo
 	public void drawEmAll( Graphics window )
 	{
+		for (Ammo a : ammo) {
+			a.draw(window);
+		}
 	}
 
 	public void moveEmAll()
 	{
+		for (Ammo a : ammo) {
+			a.move("UP");
+		}
 	}
 
 	public void cleanEmUp()
@@ -38,9 +46,13 @@ public class Bullets
 
 	public List<Ammo> getList()
 	{
-		return null;
+		return ammo;
 	}
 
+	public int size() {
+		return ammo.size();
+	}
+	
 	public String toString()
 	{
 		return "";

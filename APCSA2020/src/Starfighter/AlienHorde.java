@@ -1,5 +1,6 @@
 package Starfighter;
 //(c) A+ Computer Science
+
 //www.apluscompsci.com
 //Name -
 
@@ -11,32 +12,72 @@ import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlienHorde
-{
+public class AlienHorde {
 	private List<Alien> aliens;
+	private int maxSize;
 
-	public AlienHorde(int size)
-	{
+	public AlienHorde(int size) {
+		aliens = new ArrayList<Alien>();
+		maxSize = size;
+		for (int i = 0; i < size; i++) {
+			int x = 50 + (i % 10) * 70;
+			int y = 50 + (i / 10) * 50;
+			aliens.add(new Alien(x, y, 1));
+		}
 	}
 
-	public void add(Alien al)
-	{
+	public List<Alien> getAliens() {
+		return aliens;
 	}
 
-	public void drawEmAll( Graphics window )
-	{
+	public int getMaxSize() {
+		return maxSize;
 	}
 
-	public void moveEmAll()
-	{
+	public void setAliens(List<Alien> aliens) {
+		this.aliens = aliens;
 	}
 
-	public void removeDeadOnes(List<Ammo> shots)
-	{
+	public void setMaxSize(int maxSize) {
+		this.maxSize = maxSize;
 	}
 
-	public String toString()
-	{
+	public void add(Alien al) {
+		aliens.add(al);
+	}
+
+	public void drawEmAll(Graphics window) {
+		for (Alien a : aliens) {
+			a.draw(window);
+		}
+	}
+
+	public void moveEmAll() {
+		for (Alien a : aliens) {
+			if (a.getX() < 10 || a.getX() + a.getWidth() > 770) {
+				a.setY(a.getY() + (maxSize / 10) * 50);
+				a.setSpeed(-a.getSpeed());
+				a.move("LEFT");
+			} else
+				a.move("LEFT");
+		}
+	}
+
+	public void removeDeadOnes(List<Ammo> shots) {
+		outer: for (int a = 0; a < aliens.size(); a++) {
+			for (int b = 0; b < shots.size(); b++) {
+				if (shots.get(b).hitAlien(aliens.get(a))) {
+					aliens.remove(a);
+					shots.remove(b);
+					b--;
+					a--;
+					continue outer;
+				}
+			}
+		}
+	}
+
+	public String toString() {
 		return "";
 	}
 }
