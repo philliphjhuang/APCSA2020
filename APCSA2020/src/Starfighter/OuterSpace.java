@@ -34,7 +34,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
 		// instantiate other instance variables
 		// Ship, Alien
-		ship = new Ship(400, 500, 100, 100, 3);
+		ship = new Ship(350, 450, 100, 100, 2);
 		horde = new AlienHorde(10);
 		shots = new Bullets();
 		takenShot = false;
@@ -54,9 +54,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		// this prevents a huge line of bullets from being shot when holding down space
 		// bar
 		waitTimer++;
-		if (waitTimer > 50)
+		if (waitTimer > 50) {
 			takenShot = false;
-
+		}
 		// set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D) window;
 
