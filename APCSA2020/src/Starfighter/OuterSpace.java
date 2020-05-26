@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class OuterSpace extends Canvas implements KeyListener, Runnable {
 	private Ship ship;
-	private AlienHorde2 horde;
+	private AlienHorde horde;
 	private Bullets shots;
 	private boolean takenShot;
 	private int waitTimer = 0;
@@ -35,7 +35,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 		// instantiate other instance variables
 		// Ship, Alien
 		ship = new Ship(400, 500, 100, 100, 3);
-		horde = new AlienHorde2(10);
+		horde = new AlienHorde(10);
 		shots = new Bullets();
 		takenShot = false;
 
@@ -105,7 +105,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 			}
 		}
 		horde.moveEmAll();
-		horde.checkWallHit();
+		
 
 		// add in collision detection to see if Bullets hit the Aliens and if Bullets
 		// hit the Ship
