@@ -19,9 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class SnakeGame implements ActionListener, KeyListener {
-	public static final Color BORDER_COLOR = Color.WHITE;
 	public static final Color BACKGROUND_COLOR = Color.BLACK;
-	public static final Color FOOD_COLOR = Color.RED;
 	public static final int WIDTH = 15;
 	public static final int HEIGHT = 12;
 	public static final int WINDOW_SCALE = 50;
@@ -51,7 +49,7 @@ public class SnakeGame implements ActionListener, KeyListener {
 			public void paintComponent(Graphics g) {
 				Graphics2D g2 = (Graphics2D) g;
 
-				g2.setColor(BACKGROUND_COLOR);
+				g2.setColor(Color.BLACK);
 				g2.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 				try {
