@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class SnakeGame implements ActionListener, KeyListener {
-	public static final Color BACKGROUND_COLOR = Color.BLACK;
 	public static final int WIDTH = 15;
 	public static final int HEIGHT = 12;
 	public static final int WINDOW_SCALE = 50;
